@@ -1,0 +1,32 @@
+<div class="container u-full-width"
+    style="background: transparent; color: white; border-radius: 2px; border:0.5px solid #eee; margin:0px; max-width:100%;">
+    <div class="row u-full-width" style="margin: 0px;">
+        <div class="twelve columns" style="padding: 5px;">
+            <nav class="navbar" style="display: flex; justify-content: space-between; align-items: center; ">
+                <a href="{% url 'home' %}" class="logo"
+                    style="padding: 5px; text-decoration: none; flex: 0.1; color: inherit; font-weight: 900;">CRM</a>
+                <ul class="nav-list"
+                    style="display: flex; flex: 0.2; justify-content: space-evenly; font-size: 15px; font-weight: 700;padding: 5px; align-items: center; margin:0px;">
+                    {% if user.is_authenticated %}
+                    <li
+                        style="list-style: none; display: flex; align-items: center; margin:0px; border:0.5px solid #eee; border-radius:5px; padding: 5px 10px;">
+                        <a href="{% url 'logout' %}"
+                            style="text-decoration: none; color: inherit; transition: color 0.3s;">Logout</a>
+                    </li>
+                    {% else%}
+                    <li
+                        style="list-style: none; display: flex; align-items: center; margin:0px; border:0.5px solid #eee; border-radius:5px; padding: 5px 10px;">
+                        <a href="{% url 'register' %}"
+                            style="text-decoration: none; color: inherit; transition: color 0.3s;">Register</a>
+                    </li>
+                    <li
+                        style="list-style: none; display: flex; align-items: center; margin:0px; border:0.5px solid #eee; border-radius:5px; padding: 5px 10px;">
+                        <a href="{% url 'home' %}"
+                            style="text-decoration: none; color: inherit; transition: color 0.3s;">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
