@@ -94,9 +94,10 @@ def add_record(request:Request)->Response:
     form = AddRecordForm(request.POST or None)
     if request.user.is_authenticated:
         if request.method=="POST":
-            added_record = form.save()
-            messages.success(request,"Successfully added record.")
-            return redirect('home')
+            if form.is_valid():
+                added_record = form.save()
+                messages.success(request,"Successfully added record.")
+                return redirect('home')
         else:
             return render(request,'add_record.html',{ 'form':form })
     else:

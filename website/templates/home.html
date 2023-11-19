@@ -11,41 +11,43 @@
         </div>
     </div>
     <div class="row">
-        <div class="ten columns" >
-            <table class="u-full-width" style="color: #eee; ">
-                {%if records %}
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Phone Number</th>
-                        <th>City</th>
-                        <th>State</th>
-                        <th>Address</th>
-                        <th>ZipCode</th>
-                    </tr>
-                </thead>
-                <tbody style="max-height: 500px; overflow-y: auto;">
-                    {%for record in records%}
-                    <tr style="cursor: pointer;" onclick=window.location.href="{% url 'record' record.id %}">
-                        <td>{{record.id}}</td>
-                        <td>{{record.first_name}}</td>
-                        <td>{{ record.last_name }}</td>
-                        <td>{{ record.email }}</td>
-                        <td>{{ record.phone }}</td>
-                        <td>{{ record.city }}</td>
-                        <td>{{ record.state }}</td>
-                        <td>{{ record.address }}</td>
-                        <td>{{ record.zipcode }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-                {%else%}
-                <p>No Records Found</p>
-                {%endif%}
-            </table>
+        <div class="twelve columns" >
+            <div class="table-container">
+                <table class="table" style="color: #eee; ">
+                    {%if records %}
+                    <thead class="thead">
+                        <tr class="tr">
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Address</th>
+                            <th>ZipCode</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody" style="max-height: 500px; overflow-y: auto;">
+                        {%for record in records%}
+                        <tr style="cursor: pointer;" class="tr" onclick=window.location.href="{% url 'record' record.id %}">
+                            <td class="td">{{record.id}}</td>
+                            <td class="td">{{record.first_name}}</td>
+                            <td class="td">{{ record.last_name }}</td>
+                            <td class="td">{{ record.email }}</td>
+                            <td class="td">{{ record.phone }}</td>
+                            <td class="td">{{ record.city }}</td>
+                            <td class="td">{{ record.state }}</td>
+                            <td class="td">{{ record.address }}</td>
+                            <td class="td">{{ record.zipcode }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    {%else%}
+                    <p>No Records Found</p>
+                    {%endif%}
+                </table>
+            </div>
         </div>
     </div>
     {% else%}
