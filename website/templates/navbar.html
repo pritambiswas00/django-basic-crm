@@ -9,20 +9,20 @@
                     style="display: flex; flex: 0.2; justify-content: space-evenly; font-size: 15px; font-weight: 700;padding: 5px; align-items: center; margin:0px;">
                     {% if user.is_authenticated %}
                     <li
-                        style="list-style: none; display: flex; align-items: center; margin:0px; border:0.5px solid #eee; border-radius:5px; padding: 5px 10px;">
-                        <a href="{% url 'logout' %}"
-                            style="text-decoration: none; color: inherit; transition: color 0.3s;">Logout</a>
+                        style="list-style: none; display: flex; align-items: center; margin:0px;">
+                        <a class="button" href="{% url 'logout' %}"
+                            style="text-decoration: none; color: #eee; cursor:pointer;">Logout</a>
                     </li>
                     {% else%}
                     <li
-                        style="list-style: none; display: flex; align-items: center; margin:0px; border:0.5px solid #eee; border-radius:5px; padding: 5px 10px;">
-                        <a href="{% url 'register' %}"
-                            style="text-decoration: none; color: inherit; transition: color 0.3s;">Register</a>
+                        style="list-style: none; display: flex; align-items: center; margin:0px;">
+                        <a class="button"  href="{% url 'register' %}"
+                            style="text-decoration: none; color: #eee; cursor:pointer;">Register</a>
                     </li>
                     <li
-                        style="list-style: none; display: flex; align-items: center; margin:0px; border:0.5px solid #eee; border-radius:5px; padding: 5px 10px;">
-                        <a href="{% url 'home' %}"
-                            style="text-decoration: none; color: inherit; transition: color 0.3s;">Login</a>
+                        style="list-style: none; display: flex; align-items: center; margin:0px;">
+                        <a class="button" href="{% url 'home' %}"
+                            style="text-decoration: none; color: #eee; cursor:pointer;">Login</a>
                     </li>
                     {% endif %}
                 </ul>

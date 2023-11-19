@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container u-full-width" style="margin-top:20px;">
+    <div class="row">
+        <div class="ten column s">
+            <div class="record-card">
+                <h4>{{ customer_record.first_name }} {{ customer_record.last_name }}</h>
+                    <p>Email: {{ customer_record.email }}</p>
+                    <p>Phone: {{ customer_record.phone }}</p>
+                    <p>City: {{ customer_record.city }}</p>
+                    <p>Address: {{ customer_record.address }}</p>
+                    <p>State: {{ customer_record.state }}</p>
+                    <p>Zipcode: {{ customer_record.zipcode }}</p>
+
+            </div>
+            <a class="button" style="color:#eee" href="{%url 'home' %}">Back</a>
+            <a class="button button-primary" href="{%url 'update_record' customer_record.id %}">Update Record</a>
+            <a class="button" style="background: #C21E56; color:#eee" href="{% url 'delete_record' customer_record.id %}">Delete Record</a>
+        </div>
+        <div class="three columns">
+            <!-- <div class="record-card"> -->
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+{% endblock %}

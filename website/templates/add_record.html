@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container u-full-width" style="margin-top:20px">
+    <div class="row">
+        <div class="seven columns offset-by-three columns">
+            <h3 style="color: inherit; text-align:center;">Add Record</h3>
+            <form method="POST" action="{% url 'add_record' %}" style="margin: 10px;">
+                {% csrf_token %}
+                {% if form.errors %}
+                <div class="alert">
+                    <span class="alert-close" onclick="this.parentElement.style.display='none';">&times;</span>
+                    {% for field in form %}
+                    {% if field.errors %}
+                    <span>{{ field.errors }}</span>
+                    {%endif%}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <div class="row" style="padding:5px;">
+                    <div class="six columns" style="color: #000;">
+                        {{ form.first_name.label_tag }}
+                        {{ form.first_name }}
+                    </div>
+                    <div class="six columns" style="color: #000;">
+                        {{ form.last_name.label_tag }}
+                        {{ form.last_name }}
+                    </div>
+                </div>
+
+                <div class="row" style="padding:5px;">
+                    <div class="six columns" style="color: #000;">
+                        {{ form.email.label_tag }}
+                        {{ form.email }}
+                    </div>
+                    <div class="six columns" style="color: #000;">
+                        {{ form.phone.label_tag }}
+                        {{ form.phone }}
+                    </div>
+                </div>
+
+                <div class="row" style="padding:5px;">
+                    <div class="six columns" style="color: #000;">
+                        {{ form.address.label_tag }}
+                        {{ form.address }}
+                    </div>
+                    <div class="six columns" style="color: #000;">
+                        {{ form.city.label_tag }}
+                        {{ form.city }}
+                    </div>
+                </div>
+                <div class="row" style="padding:5px;">
+                    <div class="six columns" style="color: #000;">
+                        {{ form.state.label_tag }}
+                        {{ form.state }}
+                    </div>
+                    <div class="six columns" style="color: #000;">
+                        {{ form.zipcode.label_tag }}
+                        {{ form.zipcode }}
+                    </div>
+                </div>
+                <div class="row" style="padding: 5px;">
+                    <div class="four columns offset-by-four columns">
+                        <input class="u-full-width button-primary" style="margin: auto;" type="submit" value="Add">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
